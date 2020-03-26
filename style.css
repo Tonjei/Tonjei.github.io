@@ -1,294 +1,141 @@
-@import url("http://fonts.googleapis.com/css?family=Poppins:400,600&display=swap");
-:root{
-    --width: 90px;
-    --bodyBackground: #f7f7f7;
-    --portfolioMinHeight:532px;
-    --portfolio-background: 90px;
-    --menu-Background: #14fff7;
-    --menu-foreground: #0a0f0d;
-    --menu-hover: #fififi;
-    --subtitle-color: #333333;
-    --info-color: #999999;
-    --violet: #651fff;
-    --pink:#f50057;
-    --grey: #757575;
-}
+@import url('https://fonts.googleapis.com/css?family=Oswald|Rambla|Staatliches&display=swap');
+
 body{
-    background-attachment: var(--bodyBackground);
-    font-family: "poppins", sans-serif;
-}
-.portfolio{
-    min-height: var(--portfolioMinHeight);
-    position: relative;
-    overflow: hidden;
-    border-radius: 4px;
-    border: 1px solid red;
-}
-
-/* menu */
-.portfolio .menu {
-    max-width: var(--width);
-    width: var(--width);
-    background-color: var(--portfolio-background);
-}
-
-.portfolio .menu ul{
     margin: 0;
     padding: 0;
 }
-.portfolio .menu ul a {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--menu-Background);
-    color: var(--menu-foreground);
-    text-transform: capitalize;
-}
-.portfolio .menu ul a.active,
-.portfolio .menu ul a:hover {
-    background-color: var(--menu-hover);
+
+:root{
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-border: #ffffff34;
+    --font-staat: 'Staatliches', cursive;
+    --font-os:  'Oswald', sans-serif;
+    --font-ram: 'Rambla', sans-serif;
 }
 
-.portfolio .menu ul a .icon{
-    margin-top: 5px;
-    margin-bottom: 5px;
-    height: 30px;
-    width: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* global classes */
+.font-staat{
+    font: normal 400 18px var(--font-staat);
+}
+.font-os{
+    font: normal 300 18px var(--font-os);
+}
+.font-ram{
+    font: normal bold 18px var(--font-ram);
+}
+
+.font-size-40{
+    font-size: 40px;
+}
+.font-size-34{
+    font-size: 34px;
+}
+.font-size-27{
+    font-size: 27px;
+}
+.font-size-20{
     font-size: 20px;
 }
+.font-size-16{
+    font-size: 16px;
+}
 
-.portfolio .content {
-    position: relative;
+.bgcolor-black{
+    background-color: var(--color-black);
+}
+
+/* #global classes */
+
+#header{
+    position: fixed;
     top: 0;
-    bottom: 0;
     left: 0;
-    right: 0;
-    margin: 10px auto;
-    background-color: var(--portfolio-background);
-    transition: all ease 1s;
-    overflow: hidden;
+    width: 100%;
+    z-index:1;
+    transition: left .5s ease;
 }
-.portfolio .content.active{
-    visibility: visible;
-    opacity: 1;
-    transform: translateX(0px);
-    z-index: 10;
+/* viewport height */
+#header nav{
+    height: 100vh; 
 }
-.portfolio .content .content-inner{
-    z-index: 10;
+#header .site-title .navbar-brand{
+    letter-spacing: 2px;
+    color: var(--color-white);
+}
+
+#header .nav-link{
+    margin: .7rem 1rem;
+    border-bottom: 1px solid var(--color-border);
+    text-transform: uppercase;
+}
+
+#header .nav-link:hover{
+    color: var(--color-white) !important;
+}
+
+#header .toggle-button{
+    background: none;
+    color: var(--color-black);
+    position: fixed;
+    top: 25px;
+    right: 20px;
+    border: 1px solid var(--color-border);
+}
+
+.toggle-left{
+    left: 0 !important;
+    width: 1000px !important;
+}
+
+/* site-main */
+
+.site-banner .banner-area{
+    background: url(./Banner_image.jpg) no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.portfolio .content .content-inner .sub-title{
-    text-transform: uppercase;
-    font-weight: 600;
-    color: var(--subtitle-color);
-    margin: 10px;
 }
 
-.portfolio .content .content-inner .info {
-    color: var(--info-color);
-    text-align: justify;
-    font-size: 14px;
-}
-
-/* HOME */
-#home {
-    background-color: #272635;
-}
-.portfolio #home .portfolio-img-container {
-    text-align: center;
-    padding: 10px;
-}
-
-.portfolio #home .portfolio-img-container img {
-    border-radius: 50%;
-    padding: 10px;
-    max-width: 200px;
-    background-color: var(--bodyBackground);
-}
-
-.portfolio #home .name{
-    text-align: center;
-    text-transform: uppercase;
-    margin-top: 5px;
-    color: var(--bodyBackground);
-}
-
-.portfolio #home .name h3{
-    margin-top: 0;
-}
-
-.portfolio #home .designation{
-    text-align: center;
-    font-size: 18px;
-    margin: 10px auto;
-    color: var(--bodyBackground);
-}
-.portfolio #home .social-icons{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style-type: none;
-    padding: 0;
-    margin: 10px 0;
-}
-.portfolio #home .social-icon {
-    height: 40px;
-    width: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto 10px;
-    border-radius: 50px;
-    text-decoration: none;
-    background-color: var(--menu-Background);
-    color: var(--menu-foreground);
-}
-
-.portfolio #home .social-icon:hover {
-background-color: var(--menu-hover);
-}
-.portfolio #home .download-btn {
-    justify-content: center;
-    margin: 20px 62px;
-    padding: 10px 30px;
-    text-transform: uppercase;
-    border: none;
-    background-color:var(--bodyBackground);
-    color: var(--menu-hover);
-    border-radius: 4px;
-}
-
-/* PROJECTS */
-#projects .img-container {
-    margin: 10px auto;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-  }
-
-#projects .img-container img {
-    transition: all ease 0.5s;
-}
-#projects .img-container:hover img {
-    transform: scale(1.5) rotate(5deg);
-}
-
-#projects .img-container .overlay {
+.site-banner .banner-area .author{
+    margin: 0;
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.site-banner .banner-area .author .author-img{
+    width: 250px;
+    height: 300px;
+    border-radius: 50%;
     margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(101, 31, 255, 0.45);
-    color: var(--white);
-    font-size: 20px;
-    font-weight: 600;
-    text-transform: uppercase;
-    z-index: 2;
-}
-                         /* About */
-#about .personDetails {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-#about .personDetails li {
-    display: flex;
-    margin: 16px auto;
-    font-size: 14px;
-}
-  
-#about .personDetails .detailQuestion {
-    color: var(--subtitle-color);
-    margin-right: 4px;
-}
-  
-#about .personDetails .detailQuestion .icon {
-    height: 20px;
-    width: 20px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-}
-  
-#about .personDetails .detailAnswer {
-    color: var(--info-color);
-}
-  
-#about .skill-container {
-    margin: 20px auto;
-}
-  
-#about .skill-container .skill {
-    margin-bottom: 4px;
-}
-  
-#about .testimonials-carousel .card .img-container {
-    max-width: 150px;
-    border-radius: 500px;
-    margin: auto;
-    margin-bottom: 10px;
-    overflow: hidden;
-}
-  
-#about .testimonials-carousel .card-title {
-    text-align: center;
-}
-  
-#about .testimonials-carousel .card-text {
-    font-size: 14px;
-    color: var(--info-color);
-    text-align: center;
-}
-  
-#about .moreInfo.card {
-    margin: 10px;
-}
-  
-#about .moreInfo .card-title {
-    text-align: center;
-    color: var(--subtitle-color);
-    font-weight: 600;
-}
-  
-#about .moreInfo .card-text {
-    text-align: center;
-    font-size: 14px;
-    color: var(--info-color);
+    background: url(https://scontent.fatl1-1.fna.fbcdn.net/v/t1.0-9/91070149_2556596941249021_7656108032111149056_o.jpg?_nc_cat=109&_nc_sid=8024bb&_nc_ohc=9CxVcX8SSlMAX-YFzd6&_nc_ht=scontent.fatl1-1.fna&oh=a8dcb8b3e487f9c42e14a4e7cb4c33f9&oe=5EA1B953) no-repeat;
+    background-size: 200%;
+    background-position: 40% 0;
 }
 
+.skill .bars p, .site-content .skill .bars span{
+    line-height: 10px;
+}
 
+#footer form .row .col input[type="text"],
+#footer form .row .col input[type="email"],
+#footer form textarea{
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid gray;
+    padding: 1.5rem 1rem;
+}
 
-
-
-
-
-
-@media (min-width: 768px) {
-    .portfolio .content{
-        position: absolute;
-        margin: auto;
-        margin-left: var(--width);
-        transform: translateX(-10px);
-        z-index: 9;
-        opacity: 0;
-        visibility: hidden;
+@media screen and (min-width: 768px){
+    .toggle-button{
+        display: none;
     }
-    .portfolio #home .download-btn {
-        margin: 20px 243px;
-
+    #header{
+        z-index:0;
     }
 }
+
+/* #site-main */
